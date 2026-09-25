@@ -130,3 +130,5 @@ simplified_uno_01.webm,5,wildcard,416,13.87,1
 simplified_uno_01.webm,9,green_reverse,558,18.6,0
 simplified_uno_01.webm,3,red_reverse,622,20.73,0
 simplified_uno_01.webm,10,green_skip,676,22.53,0
+```
+*(Notice the final three moves are flagged with `validity=0`, demonstrating the rule engine's ability to identify and record sequential illegal plays).*
