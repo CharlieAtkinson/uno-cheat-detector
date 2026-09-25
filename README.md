@@ -170,10 +170,6 @@ python main.py data/sample_game.mp4 --debug
 The referee updates the active game stack and records each verified play to `output.txt` following strict comma-separated formatting:  
 `filename, card_class_id, card_name, first_seen_frame, timestamp_sec, validity`
 
-<p align="center">
-  <img src="assets/audit_log_output.png" alt="Engine Verification Output Log" width="80%">
-</p>
-
 ```csv
 simplified_uno_01.webm,0,red_0,43,1.43,1
 simplified_uno_01.webm,6,green_0,152,5.07,1
