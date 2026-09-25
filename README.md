@@ -7,7 +7,7 @@
 An end-to-end computer vision and rule-verification system that analyzes video streams of UNO games, detects played cards at ~12–15 FPS on a consumer CPU, and automatically flags illegal moves in real time.
 
 <p align="center">
-  <img src="assets/mosaic_predictions.png" alt="YOLOv11 Inference Predictions Mosaic" width="100%">
+  <img src="assets/mosaic_predictions.jpeg" alt="YOLOv11 Inference Predictions Mosaic" width="100%">
 </p>
 <p align="center"><em>Validation predictions showing multi-angle detection resilience across arbitrary card orientations and overlapping placements.</em></p>
 
@@ -46,13 +46,13 @@ An end-to-end computer vision and rule-verification system that analyzes video s
 
 ## 🏷️ Dataset Curation & Augmentation
 
-Because standard benchmark datasets lack custom card gameplay subsets, a tailored dataset of high-resolution captures was hand-curated:
+Because standard benchmark datasets lack custom card gameplay subsets, a tailored dataset was curated from high-resolution captures:
 - **Annotation Standards:** Tight bounding boxes around visible card boundaries to optimize spatial coordinate precision.
 - **Class Labeling:** Mapped to 11 custom classes encompassing numeric values (`0-2`), action cards (`reverse`, `skip`), and `wildcard` across red and green variants.
 - **Augmentations Applied:** 4-image Mosaic synthesis for card density, Mixup for overlapping card transparency, and HSV shifts to handle real-world lighting variations.
 
 <p align="center">
-  <img src="assets/dataset_annotation.png" alt="Annotation and Labelling Pipeline" width="85%">
+  <img src="assets/dataset_annotation.jpeg" alt="Annotation and Labelling Pipeline" width="85%">
 </p>
 <p align="center"><em>Dataset curation and bounding box annotation workflow.</em></p>
 
@@ -60,7 +60,7 @@ Because standard benchmark datasets lack custom card gameplay subsets, a tailore
 
 ## 📊 Model Evaluation & Metrics
 
-The model was trained over 134 epochs (best checkpoint converged at Epoch 104) with an aggressive early-stopping configuration (`patience=30`, `lr0=0.001`):
+The model was trained over 134 epochs (best checkpoint converged at Epoch 104) with an early-stopping configuration (`patience=30`, `lr0=0.001`):
 
 | Metric | Score | Note |
 |---|---|---|
@@ -74,7 +74,8 @@ The model was trained over 134 epochs (best checkpoint converged at Epoch 104) w
 </p>
 
 <p align="center">
-  <img src="assets/metrics/training_summary.png" alt="Training Parameters and Model Summary" width="90%">
+  <img src="assets/metrics/training_summary.png" alt="Final Model Performance Summary" width="90%">
+  <img src="assets/metrics/training_params.png" alt="Training Parameters" width="90%">
 </p>
 
 > **Edge-Case Insight:** Rapid card placement created occasional motion blur between `red_0` and `red_skip`. The 3-frame temporal debounce filter neutralizes this by deferring state updates until motion stops on the play stack.
@@ -93,10 +94,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Model Weights
-Download `weights.pt` from the [v1.0.0 Release](https://github.com/CharlieAtkinson/uno-cheat-detector/releases/tag/v1.0.0) and place it inside the `weights/` directory:
-```bash
-# Ensure weights/ directory exists and place weights.pt inside
-```
+Download `weights.pt` from the [v1.0.0 Release](https://github.com/CharlieAtkinson/uno-cheat-detector/releases/tag/v1.0.0) and place it inside the `weights/` directory.
 
 ### 3. Run Inference
 Process a video file to output the play audit trail:
