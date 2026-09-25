@@ -119,7 +119,14 @@ The referee updates the game state and writes each verified play to `output.txt`
 </p>
 
 ```csv
-simplified_uno_01.webm,1,red_0,32,1.07,1
-simplified_uno_01.webm,7,green_0,85,2.83,1
-simplified_uno_01.webm,8,green_1,142,4.73,1
-simplified_uno_01.webm,9,green_2,210,7.00,0
+simplified_uno_01.webm,0,red_0,43,1.43,1
+simplified_uno_01.webm,6,green_0,152,5.07,1
+simplified_uno_01.webm,7,green_1,167,5.57,1
+simplified_uno_01.webm,1,red_1,238,7.93,1
+simplified_uno_01.webm,0,red_0,299,9.97,1
+simplified_uno_01.webm,2,red_2,371,12.37,1
+simplified_uno_01.webm,0,red_0,402,13.4,1
+simplified_uno_01.webm,5,wildcard,416,13.87,1
+simplified_uno_01.webm,9,green_reverse,558,18.6,0
+simplified_uno_01.webm,3,red_reverse,622,20.73,0
+simplified_uno_01.webm,10,green_skip,676,22.53,0
